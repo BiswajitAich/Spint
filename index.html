@@ -1,0 +1,458 @@
+<!--
+Online HTML, CSS and JavaScript editor to run code online.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>SERVICEHUB â€” Service Management System</title>
+</head>
+
+<body>
+<div class="app-shell">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <button class="brand" type="button" onclick="navigate('landing')" aria-label="Go to SERVICEHUB home" style="border:0;background:transparent;padding:0;">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 8h10M7 12h10M7 16h7"/>
+            <circle cx="4.5" cy="8" r="1"/>
+            <circle cx="4.5" cy="12" r="1"/>
+            <circle cx="4.5" cy="16" r="1"/>
+          </svg>
+        </span>
+        <span class="brand-text">SERVICEHUB</span>
+      </button>
+
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <!--<button type="button" data-nav="landing">Home</button>-->
+        <button type="button" data-nav="about">About</button>
+        <button id="nav-loginView" type="button" data-nav="login" class="guest-link">Login</button>
+        <button id="nav-registerView" type="button" data-nav="register" class="guest-link">Register</button>
+        <button id="nav-servicesView" type="button" data-nav="services" class="user-link hidden">Home</button>
+        <button id="nav-bookingsView" type="button" data-nav="bookings" class="user-link hidden">My Bookings</button>
+        <button type="button" id="logoutBtn" class="user-link hidden">Logout</button>
+      </nav>
+
+      <div class="nav-user" id="navUser">
+        <span class="avatar" id="navAvatar">U</span>
+        <span id="navUserName">User</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= LANDING ================= -->
+  <main id="landingView" class="view active">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow"><span class="eyebrow-dot"></span> Everyday services, one simple platform</span>
+          <h1>Your Services.<br><span class="gradient-text">Simplified.</span></h1>
+          <p>
+            Book reliable home and vehicle services with flexible scheduling, trusted vendors,
+            and transparent pricing â€” all from one clean service-management platform.
+          </p>
+
+          <div class="hero-actions" id="landingHeroActions">
+            <button class="btn btn-primary" type="button" onclick="navigate('register')">Register Now</button>
+            <button class="btn btn-secondary" type="button" onclick="navigate('login')">Login</button>
+            <button class="btn btn-primary" type="button" onclick="navigate('services')" hidden>Continue Your journey</button>
+          </div>
+
+          <div class="feature-row" aria-label="SERVICEHUB features">
+            <div class="feature-item"><span class="check">âœ“</span> Easy Booking</div>
+            <div class="feature-item"><span class="check">âœ“</span> Trusted Vendors</div>
+            <div class="feature-item"><span class="check">âœ“</span> Flexible Scheduling</div>
+            <div class="feature-item"><span class="check">âœ“</span> Transparent Pricing</div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Service preview illustration">
+          <div class="service-preview">
+            <div class="preview-card">
+              <div class="preview-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                  <path d="M5 8h14M6 5h12v14H6z"/><path d="M9 12h6M9 15h4"/>
+                </svg>
+              </div>
+              <strong>Home Services</strong>
+              <small>Repairs and cleaning scheduled around your day.</small>
+            </div>
+            <div class="preview-card">
+              <div class="preview-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                  <path d="M4 15l1.5-6h13L20 15v4H4z"/><circle cx="8" cy="17" r="1.5"/><circle cx="16" cy="17" r="1.5"/>
+                </svg>
+              </div>
+              <strong>Vehicle Care</strong>
+              <small>Convenient repair support for two and three wheelers.</small>
+            </div>
+            <div class="preview-card">
+              <div class="preview-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                  <rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h5"/>
+                </svg>
+              </div>
+              <strong>Clear Pricing</strong>
+              <small>Simple fixed demo pricing for every listed service.</small>
+            </div>
+            <div class="preview-card">
+              <div class="preview-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                  <circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>
+                </svg>
+              </div>
+              <strong>Flexible Slots</strong>
+              <small>Choose a date and service window that works for you.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="aboutSection">
+      <div class="container">
+        <div class="about-card">
+          <h2>About SERVICEHUB</h2>
+          <p>
+            SERVICEHUB is a frontend-only demonstration of a service management system.
+            Customers can register, log in, choose a service, schedule a booking, and review
+            booking history. Browser localStorage is used for demo persistence.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= REGISTER ================= -->
+  <section id="registerView" class="view">
+    <div class="container auth-wrap">
+      <div class="auth-card">
+        <div class="auth-header">
+          <h2>Create your SERVICEHUB account</h2>
+          <p>Register once to book services and view your service history.</p>
+        </div>
+
+        <form id="registerForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="regUsername">User Name *</label>
+              <input id="regUsername" name="username" type="text" maxlength="50" placeholder="Enter your full name" autocomplete="name" required />
+              <div class="field-error" id="regUsernameError"></div>
+            </div>
+
+            <div class="field">
+              <label for="regEmail">Email *</label>
+              <input id="regEmail" name="email" type="email" maxlength="100" placeholder="you@example.com" autocomplete="email" required />
+              <div class="field-error" id="regEmailError"></div>
+            </div>
+
+            <div class="field">
+              <label for="regPassword">Password *</label>
+              <div class="control-wrap">
+                <input id="regPassword" name="password" type="password" maxlength="30" placeholder="Create a password" autocomplete="new-password" required />
+                <button type="button" class="password-toggle" data-toggle-password="regPassword">Show</button>
+              </div>
+              <div class="field-error" id="regPasswordError"></div>
+            </div>
+
+            <div class="field">
+              <label for="regAddress">Address *</label>
+              <textarea id="regAddress" name="address" maxlength="100" placeholder="Enter your service address" required></textarea>
+              <div class="char-count"><span id="regAddressCount">0</span>/100</div>
+              <div class="field-error" id="regAddressError"></div>
+            </div>
+
+            <div class="field">
+              <label for="regContact">Contact Number *</label>
+              <input id="regContact" name="contact" type="text" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" autocomplete="tel" required />
+              <div class="field-error" id="regContactError"></div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Register</button>
+          </div>
+        </form>
+
+        <div class="auth-switch">
+          Already registered?
+          <button type="button" onclick="navigate('login')">Login</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LOGIN ================= -->
+  <section id="loginView" class="view">
+    <div class="container auth-wrap">
+      <div class="auth-card">
+        <div class="auth-header">
+          <h2>Welcome back</h2>
+          <p>Use the User ID and password created during registration.</p>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="loginUserId">User ID *</label>
+              <input id="loginUserId" name="userId" type="text" maxlength="20" placeholder="Example: SM123456" autocomplete="username" required />
+              <div class="field-error" id="loginUserIdError"></div>
+            </div>
+
+            <div class="field">
+              <label for="loginPassword">Password *</label>
+              <div class="control-wrap">
+                <input id="loginPassword" name="password" type="password" maxlength="30" placeholder="Enter your password" autocomplete="current-password" required />
+                <button type="button" class="password-toggle" data-toggle-password="loginPassword">Show</button>
+              </div>
+              <div class="field-error" id="loginPasswordError"></div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Login</button>
+          </div>
+        </form>
+
+        <div class="auth-switch">
+          New to SERVICEHUB?
+          <button type="button" onclick="navigate('register')">Create an account</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DASHBOARD / SERVICES ================= -->
+  <section id="servicesView" class="view">
+    <div class="container dashboard-header">
+      <div class="dashboard-top">
+        <div>
+          <h1>Welcome back, <span id="welcomeName">User</span></h1>
+          <p>What service do you need today?</p>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <strong id="serviceCountStat">6</strong>
+            <small>Services</small>
+          </div>
+          <div class="stat">
+            <strong id="bookingCountStat">0</strong>
+            <small>Bookings</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container services-grid" id="servicesGrid"></div>
+  </section>
+
+  <!-- ================= BOOKINGS ================= -->
+  <section id="bookingsView" class="view">
+    <div class="container bookings-page">
+      <div class="page-title">
+        <h1>My Service Bookings</h1>
+        <p>View your service history and booking details.</p>
+      </div>
+
+      <div class="table-card">
+        <div class="table-scroll">
+          <table aria-label="My service bookings table">
+            <thead>
+              <tr>
+                <th>User/Customer_ID</th>
+                <th>User_Name</th>
+                <th>Service_ID</th>
+                <th>Date</th>
+                <th>Slot</th>
+                <th>Type of Service</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="bookingTableBody"></tbody>
+          </table>
+          <div id="emptyBookings" class="empty-state hidden">
+            No bookings are available yet.
+          </div>
+        </div>
+
+        <div class="pagination" id="pagination">
+          <div class="page-info" id="pageInfo">Showing 0â€“0 of 0</div>
+          <div class="page-controls">
+            <button class="page-btn" id="prevBtn" type="button" aria-label="Previous page">&lt; Prev</button>
+            <div id="pageNumbers" class="page-controls"></div>
+            <button class="page-btn" id="nextBtn" type="button" aria-label="Next page">Next &gt;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REGISTRATION SUCCESS ================= -->
+  <section id="registerSuccessView" class="view">
+    <div class="container success-wrap">
+      <div class="success-card">
+        <div class="success-icon">âœ“</div>
+        <h2>User Registration successful.</h2>
+        <p>Your SERVICEHUB account has been created successfully.</p>
+
+        <div class="detail-list">
+          <div class="detail-row"><span>User ID</span><strong id="successUserId">â€”</strong></div>
+          <div class="detail-row"><span>User Name</span><strong id="successUserName">â€”</strong></div>
+          <div class="detail-row"><span>Email</span><strong id="successUserEmail">â€”</strong></div>
+        </div>
+
+        <div class="hero-actions" style="justify-content:center;">
+          <button class="btn btn-primary" type="button" onclick="navigate('login')">Continue to Login</button>
+          <button class="btn btn-secondary" type="button" onclick="navigate('landing')">Back to Home</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BOOKING SUCCESS ================= -->
+  <section id="bookingSuccessView" class="view">
+    <div class="container success-wrap">
+      <div class="success-card">
+        <div class="success-icon">âœ“</div>
+        <h2>Service Booked successfully</h2>
+        <p>Your service booking has been saved to your booking history.</p>
+
+        <div class="detail-list">
+          <div class="detail-row"><span>Service ID</span><strong id="bookingSuccessId">â€”</strong></div>
+          <div class="detail-row"><span>Service</span><strong id="bookingSuccessService">â€”</strong></div>
+          <div class="detail-row"><span>Vendor</span><strong id="bookingSuccessVendor">â€”</strong></div>
+          <div class="detail-row"><span>Date</span><strong id="bookingSuccessDate">â€”</strong></div>
+          <div class="detail-row"><span>Slot</span><strong id="bookingSuccessSlot">â€”</strong></div>
+        </div>
+
+        <div class="hero-actions" style="justify-content:center;">
+          <button class="btn btn-primary" type="button" onclick="navigate('bookings')">View My Bookings</button>
+          <button class="btn btn-secondary" type="button" onclick="navigate('services')">Book Another Service</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BOOKING MODAL ================= -->
+  <div class="modal-backdrop" id="bookingModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+      <div class="modal-head">
+        <div>
+          <h2 id="bookingModalTitle">Book a Service</h2>
+          <p id="bookingModalSubtitle">Complete the details below.</p>
+        </div>
+        <button class="close-btn" id="closeModalBtn" type="button" aria-label="Close booking form">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="booking-note">
+          This is a frontend-only service booking demonstration. Amounts are static demo values and cannot be edited.
+        </div>
+
+        <form id="bookingForm" novalidate>
+          <input id="selectedService" type="hidden" />
+
+          <div id="serviceSpecificFields"></div>
+
+          <div class="form-grid two-col">
+            <div class="field">
+              <label for="bookingDate">Date / Slot Date *</label>
+              <input id="bookingDate" type="date" required />
+              <div class="field-error" id="bookingDateError"></div>
+            </div>
+
+            <div class="field">
+              <label for="bookingSlot">Time Slot *</label>
+              <select id="bookingSlot" required>
+                <option value="">Select a time slot</option>
+                <option>09:00 AM - 11:00 AM</option>
+                <option>11:00 AM - 01:00 PM</option>
+                <option>02:00 PM - 04:00 PM</option>
+                <option>04:00 PM - 06:00 PM</option>
+              </select>
+              <div class="field-error" id="bookingSlotError"></div>
+            </div>
+          </div>
+
+          <div id="addressFieldGroup" class="field" style="margin-top:15px;">
+            <label for="bookingAddress">Address *</label>
+            <textarea id="bookingAddress" maxlength="100" placeholder="Enter the service address" required></textarea>
+            <div class="char-count"><span id="bookingAddressCount">0</span>/100</div>
+            <div class="field-error" id="bookingAddressError"></div>
+          </div>
+
+          <div id="pickupDropFields" class="form-grid two-col hidden" style="margin-top:15px;">
+            <div class="field">
+              <label for="pickupAddress">Pickup Address *</label>
+              <textarea id="pickupAddress" maxlength="100" placeholder="Enter pickup address"></textarea>
+              <div class="field-error" id="pickupAddressError"></div>
+            </div>
+            <div class="field">
+              <label for="dropAddress">Drop Address *</label>
+              <textarea id="dropAddress" maxlength="100" placeholder="Enter drop address"></textarea>
+              <div class="field-error" id="dropAddressError"></div>
+            </div>
+          </div>
+
+          <div class="form-grid two-col" style="margin-top:15px;">
+            <div class="field">
+              <label for="bookingVendor">Vendor *</label>
+              <select id="bookingVendor" required>
+                <option value="">Select a vendor</option>
+                <option>Urban Services</option>
+                <option>HomeCare Experts</option>
+                <option>QuickFix Solutions</option>
+              </select>
+              <div class="field-error" id="bookingVendorError"></div>
+            </div>
+
+            <div class="field">
+              <label for="bookingAmount">Amount</label>
+              <input id="bookingAmount" type="text" readonly aria-readonly="true" value="â‚¹0" />
+              <div class="field-error" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button class="btn btn-secondary" type="button" id="cancelBookingBtn">Cancel</button>
+            <button class="btn btn-primary" type="submit">Confirm Booking</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST ================= -->
+  <div id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 8h10M7 12h10M7 16h7"/>
+              <circle cx="4.5" cy="8" r="1"/>
+              <circle cx="4.5" cy="12" r="1"/>
+              <circle cx="4.5" cy="16" r="1"/>
+            </svg>
+          </span>
+          <span class="brand-text">SERVICEHUB</span>
+        </div>
+        <p>Making everyday services simple.</p>
+      </div>
+
+      <div class="footer-links">
+        <button type="button" onclick="navigate(isLoggedIn() ? 'services' : 'landing')">Home</button>
+        <button type="button" onclick="navigate(isLoggedIn() ? 'services' : 'login')">Services</button>
+        <button type="button" onclick="navigate(isLoggedIn() ? 'bookings' :
