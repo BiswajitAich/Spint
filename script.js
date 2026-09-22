@@ -271,12 +271,12 @@ function navigate(view, scrollTarget = null) {
     Object.values(VIEW_IDS).forEach((id) => {
         document.getElementById(id).classList.remove("active");
         const nav = document.getElementById("nav-"+id)
-        if(nav) nav.classList.remove("active");
+        if(nav) nav.classList.add("active");
     });
 
     const viewId = VIEW_IDS[view] || VIEW_IDS.landing;
     document.getElementById(viewId).classList.add("active");
-    const nav = document.getElementById("nav-"+id)
+    const nav = document.getElementById("nav-"+viewId)
     if (nav) nav.classList.remove("active");
 
     if (view === "services") {
